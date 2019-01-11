@@ -66,7 +66,16 @@ public class CommonUtil {
         if(false) {
             json = responseMessageUtil.createCardMessage();
         } else {
-            json = "{ \"text\": \"" + responseMessageUtil.createTextMessage() + "\"}";
+            if(responseMessageUtil.getThreadId() == null || responseMessageUtil.getThreadId() == "") {
+                json = "{ \"text\": \"" + responseMessageUtil.createTextMessage() + "\"}";
+            } else {
+                String spaces = StringUtils.substringBetween(googleChatNotification.getUrl(), "spaces/", "/messages");
+                if(spaces != null && spaces != "") {
+                    json = "{ \"thread\": {    \"name\": \"spaces/"+spaces+"/threads/" + responseMessageUtil.getThreadId() + "\"  },  \"text\": \"" + responseMessageUtil.createTextMessage() + "\"}";
+                } else {
+                    json = "{ \"text\": \"" + responseMessageUtil.createTextMessage() + "\"}";
+                }
+            }
         }
 
         if (logUtil.printLogEnabled()) {

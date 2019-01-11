@@ -30,6 +30,10 @@ public class ResponseMessageUtil {
         return text;
     }
 
+    public String getThreadId(){
+        return escapeSpecialCharacter(googleChatNotification.getRoogmName());
+    }
+
     public String createCardMessage() {
 
         String text = escapeSpecialCharacter(replaceJenkinsKeywords(replaceBuildStatusKeywordWithColorCode(googleChatNotification.getMessage())));

@@ -28,6 +28,7 @@ public class GoogleChatNotification extends Notifier implements SimpleBuildStep 
 
     private String url;
     private String message;
+    private String threadId;
     private boolean notifyAborted;
     private boolean notifyFailure;
     private boolean notifyNotBuilt;
@@ -44,9 +45,10 @@ public class GoogleChatNotification extends Notifier implements SimpleBuildStep 
     private ResponseMessageUtil responseMessageUtil;
 
     @DataBoundConstructor
-    public GoogleChatNotification(String url, String message) {
+    public GoogleChatNotification(String url, String message,String threadId) {
         this.url = url;
         this.message = message;
+        this.threadId = threadId;
     }
 
     @DataBoundSetter
@@ -102,6 +104,14 @@ public class GoogleChatNotification extends Notifier implements SimpleBuildStep 
             return getDescriptor().getMessage();
         } else {
             return message;
+        }
+    }
+
+    public String getThreadId() {
+        if(threadId == null || threadId.equals("")) {
+            return getDescriptor().getThreadId();
+        } else {
+            return threadId;
         }
     }
 
@@ -212,6 +222,7 @@ public class GoogleChatNotification extends Notifier implements SimpleBuildStep 
 
         private String url;
         private String message;
+        private String threadId;
         private boolean notifyAborted;
         private boolean notifyFailure;
         private boolean notifyNotBuilt;
@@ -254,6 +265,7 @@ public class GoogleChatNotification extends Notifier implements SimpleBuildStep 
             // set that to properties and call save().
             url = formData.getString("url");
             message = formData.getString("message");
+            threadId = formData.getString("threadId");
             notifyAborted = formData.getBoolean("notifyAborted");
             notifyFailure = formData.getBoolean("notifyFailure");
             notifyNotBuilt = formData.getBoolean("notifyNotBuilt");
@@ -274,6 +286,10 @@ public class GoogleChatNotification extends Notifier implements SimpleBuildStep 
 
         public String getMessage() {
             return message;
+        }
+        
+        public String getThreadId(){
+            return threadId;
         }
 
         public boolean isNotifyAborted() {

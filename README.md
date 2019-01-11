@@ -54,36 +54,40 @@ Use below command
    - This is a mandatory String parameter.
    - Notification message to be sent.
    - Supports all token macro variables for pipeline as well as build jobs.
-
-3. **notifyAborted**
+   
+3. **Thread ID**
+   - This is an optionalString parameter.
+   - Notification message to be sent in a specific thread in Google Chat GSuite.
+   
+4. **notifyAborted**
    - This is an optional boolean parameter. Default value is false.
    - Notification message to be sent when build status is ABORTED.
 
-4. **notifyFailure**
+5. **notifyFailure**
    - This is an optional boolean parameter. Default value is false.
    - Notification message to be sent when build status is FAILURE.
 
-5. **notifyNotBuilt**
+6. **notifyNotBuilt**
    - This is an optional boolean parameter. Default value is false.
    - Notification message to be sent when build status is NOT_BUILT.
 
-6. **notifySuccess**
+7. **notifySuccess**
    - This is an optional boolean parameter. Default value is false.
    - Notification message to be sent when build status is SUCCESS.
 
-7. **notifyUnstable**
+8. **notifyUnstable**
    - This is an optional boolean parameter. Default value is false.
    - Notification message to be sent when build status is UNSTABLE.
 
-8. **notifyBackToNormal**
+9. **notifyBackToNormal**
    - This is an optional boolean parameter. Default value is false.
    - Notification message to be sent when build status is SUCCESS and previous build status was not SUCCESS.
 
-9. **suppressInfoLoggers**
+10. **suppressInfoLoggers**
    - This is an optional boolean parameter. Default value is false.
    - Suppress all info loggers in Jenkins build.
 
-9. **sameThreadNotification**
+11. **sameThreadNotification**
    - This is an optional boolean parameter. Default value is false.
    - This parameter is used to send notification in same thread for a particular job. Here thread_key is a value of JOB_NAME.
 

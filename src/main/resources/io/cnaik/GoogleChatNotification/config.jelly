@@ -16,6 +16,10 @@
     <f:entry title="Message" field="message">
         <f:textbox />
     </f:entry>
+    
+    <f:entry title="Thead Id" field="threadId">
+        <f:textbox />
+    </f:entry>
 
     <f:entry title="Notify Aborted" field="notifyAborted">
         <f:checkbox/>
