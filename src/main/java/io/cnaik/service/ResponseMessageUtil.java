@@ -31,7 +31,7 @@ public class ResponseMessageUtil {
     }
 
     public String getThreadId(){
-        return escapeSpecialCharacter(googleChatNotification.getRoogmName());
+        return escapeSpecialCharacter(googleChatNotification.getThreadId());
     }
 
     public String createCardMessage() {
